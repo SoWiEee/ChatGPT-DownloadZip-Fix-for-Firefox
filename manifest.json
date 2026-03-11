@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Download Zip",
+  "version": "0.1.0",
+  "description": "Extracts ChatGPT download_url from interpreter/download JSON and downloads the direct file URL.",
+  "permissions": [
+    "downloads",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://*.oaiusercontent.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page-hook.js"],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_title": "ChatGPT Download Zip",
+    "default_popup": "popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chatgpt-downloadzip@example.local",
+      "strict_min_version": "127.0"
+    }
+  }
+}
