@@ -2,6 +2,10 @@
 
 Firefox extension that extracts the direct download_url from ChatGPT's download-prep response and starts the real file download.
 
+## Problem
+
+When click download link on `chatgpt.com`, occur error or keep starting download
+
 ## Usage
 
 1. Open Firefox, visit `about:debugging#/runtime/this-firefox`
